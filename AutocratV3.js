@@ -140,7 +140,7 @@ class IdleClassAutocrat {
 				this.currOutgoing = game.composedMail();
 				if(this.currOutgoing.stressLevel.val() > 50) {
 					// Human Resources
-					this.currOutgoing.selectedDepartment('3');
+					this.currOutgoing.selectedDepartment('4');
 				} else {
 					// Random other. 0 = investments, 1 = r&d, 2 = acquisitions. R&D is available before investments.
 					let r = Math.random();
@@ -399,7 +399,7 @@ class IdleClassAutocrat {
 				case 5: // Wait until bankruptcy, then wait for conditions, before declaring bankruptcy and restarting loop.
 					if(game.locked().mail === true) { this.currProcess = 0; break; }
 					if(game.locked().bankruptcy === true) { break; }
-					if(game.nextBankruptcyBonus.val() > game.stats()[this.currentBankruptcyStatsIndex].val() * this.bankruptcyResetFraction) {
+					if(game.nextBankruptcyBonus.val() > game.stats[this.currentBankruptcyStatsIndex].val() * this.bankruptcyResetFraction) {
 						this.currProcess = 0;
 						game.restartGame();
 					}
